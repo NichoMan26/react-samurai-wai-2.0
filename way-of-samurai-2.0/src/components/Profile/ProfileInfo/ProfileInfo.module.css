@@ -1,0 +1,13 @@
+.wrapper{
+    display: flex;
+}
+.textWrapper{
+    padding: 20px;
+}
+.name{
+    color: #7D0057;
+}
+.status{
+    color: #7D0057;
+
+}

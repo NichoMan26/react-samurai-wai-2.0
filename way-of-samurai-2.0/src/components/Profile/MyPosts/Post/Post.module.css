@@ -1,0 +1,31 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #FFF500;
+    border: 2px solid #7D0057;
+    margin: 0 0 20px 0;
+    -webkit-box-shadow: 4px 3px 15px 6px rgba(135,125,19,0.71); 
+box-shadow: 4px 3px 15px 6px rgba(135,125,19,0.71);
+}
+
+.avatar {
+    width: 50;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.textWrapper {
+    margin-left: 10px;
+}
+
+.name {
+    color: #7D0057;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.text {
+    color: #7D0057;
+    font-size: 16px;
+}
