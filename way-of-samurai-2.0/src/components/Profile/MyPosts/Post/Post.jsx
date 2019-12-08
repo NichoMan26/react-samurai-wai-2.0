@@ -2,7 +2,7 @@ import React from 'react';
 
 import cls from './Post.module.css'
 import userDef from './../../../../assets/img/userDef.png'
-const Post = () => {
+const Post = (props) => {
     return(
         <div className={cls.wrapper}>
             <div className={cls.avatar}>
@@ -10,7 +10,7 @@ const Post = () => {
             </div>
             <div className={cls.textWrapper}>
                 <p className={cls.name}>Denis:</p>
-                <p className={cls.text}>I'm cool man</p>
+                <p className={cls.text}>{props.message}</p>
                
             </div>
         </div>

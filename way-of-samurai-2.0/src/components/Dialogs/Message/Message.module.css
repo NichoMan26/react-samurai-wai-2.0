@@ -1,0 +1,19 @@
+.wrapper{
+    border: 2px solid #7D0057;
+    margin: 0 0 10px 0;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 4px 3px 15px 6px rgba(135, 125, 19, 0.71);
+    min-height: 40px;
+    display: inline-block;
+   
+}
+.name{
+    
+    color: #009b00;
+    font-size: 12px;
+}
+.text{
+    color: #7D0057;
+    
+}

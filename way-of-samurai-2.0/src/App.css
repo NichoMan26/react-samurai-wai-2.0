@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
 }
 body {
   background-color: #FFF500;
@@ -16,4 +18,7 @@ body {
   box-shadow: 4px 3px 15px 6px rgba(135, 125, 19, 0.71);
   max-width: 1200px;
   margin: 0 auto;
+}
+.content {
+  grid-area: content;
 }

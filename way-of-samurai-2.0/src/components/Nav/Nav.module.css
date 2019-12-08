@@ -9,9 +9,19 @@
   padding: 10px;
 }
 .li {
+  list-style-type: none;
+}
+.link {
   min-height: 30px;
   line-height: 30px;
   color: #7D0057;
   font-size: 20px;
   font-weight: 500;
+  text-decoration: none;
+}
+.link:hover {
+  color: #009b00;
+}
+.active {
+  color: #009b00;
 }

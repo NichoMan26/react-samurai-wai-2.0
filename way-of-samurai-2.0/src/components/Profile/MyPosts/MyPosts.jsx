@@ -7,10 +7,9 @@ const MyPosts = () => {
     return(
         <div className={cls.wrapper}>
             <NewPost/>
-          <Post/>
-          <Post/>
-          <Post/>
-          <Post/>
+          <Post message='First post'/>
+          <Post message='Secons post'/>
+          <Post message='Third post'/>
         </div>
     )
 }
