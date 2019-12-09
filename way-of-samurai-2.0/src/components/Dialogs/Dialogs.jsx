@@ -4,22 +4,15 @@ import cls from './Dialogs.module.css'
 
 import DialogsItem from './DialogsItem/DialogsItem';
 import Message from './Message/Message';
-const Dialogs = () => {
-    let dialogsData = [
-        { id:1, name:'Andrey' },
-        { id:2, name:'Igor' },
-        { id:3, name:'Valera' },
-        { id:4, name:'Vova' },]
-        let dialogList = dialogsData.map((el) => {
+import NewMessage from './NewMessage/NewMessage';
+const Dialogs = (props) => {
+    
+        let dialogList = props.dialogsPage.posts.map((el) => {
             return  <li><DialogsItem name={el.name} id={el.id} /></li>
         })
         
-    let messagesData = [
-        { id:1, autor:'Oleg', text:'Hi' },
-        { id:2, autor:'Denis', text:'Hello' },
-        { id:3, autor:'Oleg', text:'How are you?' },
-        { id:4, autor:'Oleg', text:'Fine' },]
-        let messageList = messagesData.map((el) => {
+    console.log(props)
+        let messageList = props.dialogsPage.messages.map((el) => {
             return  <li><Message autor={el.autor} text={el.text} /></li>
         })
     return (
@@ -33,7 +26,7 @@ const Dialogs = () => {
                 <ul>
                    {messageList}
                 </ul>
-
+                <NewMessage/>
             </div>
         </div>
     )

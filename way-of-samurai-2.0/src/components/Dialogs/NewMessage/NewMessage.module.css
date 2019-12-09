@@ -1,0 +1,29 @@
+.wrapper{
+    display: flex;
+    width: 100%;
+    margin: 0 0 20px 0;
+}
+.textarea{
+    width: calc(100% - 100px);
+    resize: none;
+    background-color: #FFF500;
+    border: 2px solid #7D0057;
+    padding: 10px;
+    min-height: 75px;
+}
+.button{
+    width: 150px;
+    background-color: #FFF500;
+    border: 2px solid #7D0057;
+    border-left: none;
+    color: #7D0057;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.button:hover{
+    background-color: #7D0057;
+    color: #FFF500;
+
+}
