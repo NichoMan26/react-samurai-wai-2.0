@@ -14,11 +14,11 @@ const App = (props) => {
         <Nav / >
         <div className='content'>
           <Route path='/profile' 
-                  render={() => <Profile updateNewPostText={props.updateNewPostText} 
-                                          addPost={props.addPost} 
+                  render={() => <Profile  dispatch={props.dispatch} 
                                           profilePage={props.state.profilePage} />}/>
           <Route path='/dialogs' 
-                  render={() => <Dialogs dialogsPage={props.state.dialogsPage} />}/>
+                  render={() => <Dialogs dispatch={props.dispatch} 
+                                          dialogsPage={props.state.dialogsPage} />}/>
         </div>
       </div>
     </BrowserRouter>

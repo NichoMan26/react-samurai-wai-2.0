@@ -9,9 +9,8 @@ const MyPosts = (props) => {
     })
     return(
         <div className={cls.wrapper}>
-            <NewPost addPost={props.addPost}
-                    newPostText={props.newPostText}
-                    updateNewPostText={props.updateNewPostText}/>
+            <NewPost dispatch={props.dispatch}
+                    newPostText={props.newPostText}/>
             {myPosts}
         </div>
     )

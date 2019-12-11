@@ -10,8 +10,6 @@ const Dialogs = (props) => {
         let dialogList = props.dialogsPage.posts.map((el) => {
             return  <li><DialogsItem name={el.name} id={el.id} /></li>
         })
-        
-    console.log(props)
         let messageList = props.dialogsPage.messages.map((el) => {
             return  <li><Message autor={el.autor} text={el.text} /></li>
         })
@@ -26,7 +24,7 @@ const Dialogs = (props) => {
                 <ul>
                    {messageList}
                 </ul>
-                <NewMessage/>
+                <NewMessage dispatch={props.dispatch} dialogsPage={props.dialogsPage}/>
             </div>
         </div>
     )
