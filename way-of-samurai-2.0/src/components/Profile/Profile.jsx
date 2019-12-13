@@ -2,15 +2,15 @@ import React from 'react';
 
 import cls from './Profile.module.css'
 import ProfileInfo from './ProfileInfo/ProfileInfo';
-import MyPosts from './MyPosts/MyPosts';
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 const Profile = (props) => {
-
     return(
         <div className={cls.profile}>
            <ProfileInfo />
-           <MyPosts dispatch={props.dispatch}
-                    myPosts={props.profilePage.myPosts} 
-                    newPostText={props.profilePage.newPostText}/>
+           <MyPostsContainer />
+            {/* <MyPostsContainer dispatch={props.store.dispatch.bind(props.store)}
+                    myPosts={state.profilePage.myPosts} 
+                    newPostText={state.profilePage.newPostText}/> */}
         </div>
     )
 }

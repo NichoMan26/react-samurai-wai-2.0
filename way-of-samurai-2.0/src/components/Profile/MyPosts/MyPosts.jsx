@@ -4,13 +4,15 @@ import cls from './MyPosts.module.css'
 import Post from './Post/Post';
 import NewPost from './NewPost/NewPost';
 const MyPosts = (props) => {
-    let myPosts = props.myPosts.map((el) => {
-        return <Post message={el.text}/>
+    let myPosts = props.myPosts.map((el, idx) => {
+        return <Post key={idx} message={el.text}/>
     })
     return(
         <div className={cls.wrapper}>
-            <NewPost dispatch={props.dispatch}
-                    newPostText={props.newPostText}/>
+            <NewPost updateNewPostText={props.updateNewPostText} 
+                    addPost={props.addPost}
+                    newPostText={props.newPostText}
+                    />
             {myPosts}
         </div>
     )

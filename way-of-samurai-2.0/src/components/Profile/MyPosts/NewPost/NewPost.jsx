@@ -1,21 +1,19 @@
 import React from 'react';
 
 import cls from './NewPost.module.css'
-import {updateNewPostActionCreator, addPostActionCreator} from './../../../../redux/state'
 
 const NewPost = (props) => {
-    let newPostEl = React.createRef();
-    let addpost = () => {
-        props.dispatch(addPostActionCreator())
+    let addPost = () => {
+        props.addPost()
     }
-    let onPostChange = () =>{
-        props.dispatch(updateNewPostActionCreator(newPostEl.current.value))
+    let onPostChange = (event) =>{
+        props.updateNewPostText(event.target.value)
     }
     
     return(
         <div className={cls.wrapper}>
-            <textarea onChange={onPostChange} value={props.newPostText} ref={newPostEl} className={cls.textarea} name="" ></textarea>
-            <button onClick={addpost} className={cls.button}>Add post</button>
+            <textarea onChange={onPostChange} value={props.newPostText} className={cls.textarea} name="" ></textarea>
+            <button onClick={addPost} className={cls.button}>Add post</button>
         </div>
     )
 }
