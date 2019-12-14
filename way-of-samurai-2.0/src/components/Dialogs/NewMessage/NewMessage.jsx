@@ -2,7 +2,9 @@ import React from 'react';
 
 import cls from './NewMessage.module.css'
 const NewMessage = (props) => {
-    let addMessage = () => {
+    console.log(props)
+    console.log(props.dialogsPage.newMessage)
+    let onAddMessage = () => {
        props.onAddMessage()
     }
     let onMessageChange = (event) =>{
@@ -13,7 +15,7 @@ const NewMessage = (props) => {
     return(
         <div className={cls.wrapper}>
             <textarea onChange={onMessageChange} className={cls.textarea} name="" value={props.dialogsPage.newMessage} ></textarea>
-            <button onClick={addMessage} className={cls.button}>Add Message</button>
+            <button onClick={onAddMessage} className={cls.button}>Add Message</button>
         </div>
     )
 }

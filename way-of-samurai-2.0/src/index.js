@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import store from './redux/state'
-import {Provider} from './StoreContext';
+import store from './redux/redux-store'
+import {Provider} from 'react-redux';
 
-let renderEntireTree = (state) => {
     ReactDOM.render(
         <Provider store={store}>
             <App/> 
@@ -17,6 +16,3 @@ let renderEntireTree = (state) => {
     // unregister() to register() below. Note this comes with some pitfalls.
     // Learn more about service workers: https://bit.ly/CRA-PWA
     serviceWorker.unregister();
-}
-renderEntireTree(store.getState())
-store.subscribe(renderEntireTree)

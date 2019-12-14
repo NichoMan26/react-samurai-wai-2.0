@@ -1,4 +1,6 @@
-const navReducer = (state, action) => {
+let initialState = {
+}
+const navReducer = (state = initialState, action) => {
 
     return state;
 }
