@@ -1,0 +1,56 @@
+.wrapper{
+    padding: 10px;
+}
+.user{
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    border: 2px solid #7D0057;
+    margin: 0 0 10px 0;
+    box-shadow: 4px 3px 15px 6px rgba(135, 125, 19, 0.71);
+}
+.imgWrapper{
+    display: flex;
+    flex-direction: column;
+    max-width: 100px;
+}
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-right: 2px solid #7D0057;
+}
+.button{
+    width: 100px;
+    border: 2px solid #7D0057;
+    border-left: none;
+    border-bottom: none;
+    color: #7D0057;
+    background-color: #FFF500;
+    transition:0.3s;
+    outline: none;
+    height: 40px;
+    font-weight: 800;
+}
+.button:hover{
+    background-color: #7D0057;
+    color: #FFF500;
+    cursor: pointer;
+}
+.button:active{
+    background-color: #009b00;
+    color: #FFF500;
+    cursor: pointer;
+}
+.wrapperText{
+    padding: 10px;
+}
+.name{
+    color: #7D0057;
+    font-weight: 800;
+    font-style: 24px;
+}
+.status{
+    color: #7D0057;
+    margin: 0 0 0 10px;
+    font-weight: 400;
+    font-style: 16px;
+}
