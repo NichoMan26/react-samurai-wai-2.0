@@ -1,39 +1,44 @@
 import React from 'react'
 import cls from './Users.module.css'
-import * as axios from 'axios'
 import userDef from './../../assets/img/userDef.png'
 
-
-const Users = (props) => {
-    if(props.users.length === 0){
-        axios.get('https://social-network.samuraijs.com/api/1.0/users')
-        .then(responce=>{
-            props.setUsers(responce.data.items)
-        })
+const Users = (props) =>{
+    let countPages = Math.ceil(props.totalUsersCount / props.pageSize);
+    let pages = []
+    for(let i = 1; i <= countPages; i++){
+        pages.push(i)
     }
-    
     return <div className={cls.wrapper}>
-        
-       <ul>
-            {props.users.map((el) => {
+    <ul className={cls.pagination}>
+    {pages.map((el)=>{
+        return <li onClick={()=>{props.onPageChanged(el)}}
+                    key={el} 
+                    className={el === props.currentPage 
+                        ? `${cls.pagination__item_active} ${cls.pagination__item}` 
+                        : cls.pagination__item}>{el}</li>
+    })}
+    </ul>
+    <ul>
+    {props.users.map((el) => {
+    
+    return <li className={cls.user} key={el.id}>
+        <div className={cls.imgWrapper}>
+            <img className={cls.avatar} src={el.photos.small != null ? el.photos.small : userDef} alt="avatar"/>
+            {el.followed ? <button onClick={() => {props.unFollow(el.id)}} className={cls.button}>Unfollow</button> : 
+                <button onClick={() => {props.follow(el.id)}} className={cls.button}>Follow</button>}
+        </div>
+        <div className={cls.wrapperText}>
+            <p>
+                <span className={cls.name}>{el.name}:</span>
+                <span className={cls.status}>{el.status ? el.status : '-----'}</span>
+            </p>
             
-            return <li className={cls.user} key={el.id}>
-                <div className={cls.imgWrapper}>
-                    <img className={cls.avatar} src={el.photos.small != null ? el.photos.small : userDef} alt="avatar"/>
-                    {el.followed ? <button onClick={() => {props.unFollow(el.id)}} className={cls.button}>Unfollow</button> : 
-                        <button onClick={() => {props.follow(el.id)}} className={cls.button}>Follow</button>}
-                </div>
-                <div className={cls.wrapperText}>
-                    <p>
-                        <span className={cls.name}>{el.name}:</span>
-                        <span className={cls.status}>{el.status}</span>
-                    </p>
-                    
-                </div>
-            </li>
-            
-            })}
-         </ul> 
-    </div>
+        </div>
+    </li>
+    
+    })}
+</ul> 
+</div>
 }
+
 export default Users;
