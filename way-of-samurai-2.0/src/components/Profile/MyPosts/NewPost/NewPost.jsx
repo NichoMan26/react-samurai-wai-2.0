@@ -3,7 +3,6 @@ import React from 'react';
 import cls from './NewPost.module.css'
 
 const NewPost = (props) => {
-    console.log(props)
     let addPost = () => {
         props.addPost()
     }

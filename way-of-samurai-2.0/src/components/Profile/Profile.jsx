@@ -4,9 +4,10 @@ import cls from './Profile.module.css'
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 const Profile = (props) => {
+    
     return(
         <div className={cls.profile}>
-           <ProfileInfo />
+           <ProfileInfo userProfile={props.userProfile}/>
            <MyPostsContainer />
             {/* <MyPostsContainer dispatch={props.store.dispatch.bind(props.store)}
                     myPosts={state.profilePage.myPosts} 

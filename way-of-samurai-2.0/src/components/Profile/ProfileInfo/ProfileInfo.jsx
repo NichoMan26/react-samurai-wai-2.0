@@ -1,16 +1,26 @@
 import React from 'react';
 
-import userDev from './../../../assets/img/userDef.png'
 import cls from './ProfileInfo.module.css'
-const ProfileInfo = () => {
+import Preload from '../../Preload/Preload';
+import userDef from './../../../assets/img/userDef.png'
+
+
+const ProfileInfo = (props) => {
+    
+if(!props.userProfile){
+    return <Preload/>
+} else {
     return (
         <div className={cls.wrapper}>
-            <img src={userDev} alt="user" />
+            <img className={cls.userPhoto} src={props.userProfile.photos.small?props.userProfile.photos.small:userDef} alt="user" />
             <div className={cls.textWrapper}>
-                <h1 className={cls.name}>DENIS</h1>
-                <p className={cls.status}>I love React</p>
+                <h1 className={cls.name}>{props.userProfile.fullName}</h1>
+                <p className={cls.status}>{props.userProfile.aboutMe}</p>
             </div>
         </div>
     )
 }
+}
+
+
 export default ProfileInfo;

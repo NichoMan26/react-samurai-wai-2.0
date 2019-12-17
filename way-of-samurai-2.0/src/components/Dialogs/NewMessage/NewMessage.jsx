@@ -2,8 +2,6 @@ import React from 'react';
 
 import cls from './NewMessage.module.css'
 const NewMessage = (props) => {
-    console.log(props)
-    console.log(props.dialogsPage.newMessage)
     let onAddMessage = () => {
        props.onAddMessage()
     }
