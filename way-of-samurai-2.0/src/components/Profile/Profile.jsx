@@ -6,9 +6,10 @@ import MyPostsContainer from './MyPosts/MyPostsContainer';
 
 
 const Profile = (props) => {
+    console.log('props: ', props);
     return(
         <div className={cls.profile}>
-           <ProfileInfo userProfile={props.userProfile}/>
+           <ProfileInfo userProfile={props.userProfile} status={props.status} updateStatus={props.updateStatus}/>
            <MyPostsContainer />
             {/* <MyPostsContainer dispatch={props.store.dispatch.bind(props.store)}
                     myPosts={state.profilePage.myPosts} 
