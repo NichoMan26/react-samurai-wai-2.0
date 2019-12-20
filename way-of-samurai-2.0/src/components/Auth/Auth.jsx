@@ -17,7 +17,7 @@ const Auth = (props) =>{
             </NavLink>
             :
             <NavLink className={cls.wrapper} to={'/login/'}>
-               {props.isAuth?props.userName:"Login"}
+               <p className={cls.login}>Login</p>  
             </NavLink>
             }
             </>
