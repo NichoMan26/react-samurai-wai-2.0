@@ -3,7 +3,7 @@ import cls from './Users.module.css'
 import userDef from './../../assets/img/userDef.png'
 import {NavLink} from 'react-router-dom'
 
-const Users = (props) =>{
+const Users = (props) =>{    
     let countPages = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = []
     for(let i = 1; i <= countPages; i++){
@@ -21,14 +21,21 @@ const Users = (props) =>{
     </ul>
     <ul>
     {props.users.map((el) => {
-    
     return <li className={cls.user} key={el.id}>
         <div className={cls.imgWrapper}>
             <NavLink to={'/profile/' + el.id}>
                 <img className={cls.avatar} src={el.photos.small != null ? el.photos.small : userDef} alt="avatar"/>
             </NavLink>
-            {el.followed ? <button onClick={() => {props.unFollow(el.id)}} className={cls.button}>Unfollow</button> : 
-                <button onClick={() => {props.follow(el.id)}} className={cls.button}>Follow</button>}
+            
+            {el.followed 
+            ? <button disabled={props.followingInProgress
+                .some(id => id === el.id)}
+                onClick={() => {props.unFollow(el.id)}}
+                className={cls.button}>Unfollow</button> 
+            : <button disabled={props.followingInProgress
+                .some(id => id === el.id)} 
+                onClick={() => {props.follow(el.id)}}
+                className={cls.button}>Follow</button>}
         </div>
         <div className={cls.wrapperText}>
             <p>

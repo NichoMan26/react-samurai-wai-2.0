@@ -1,0 +1,21 @@
+.wrapper{
+    border:  2px solid #FFF500;
+    color: #FFF500;
+    background-color: #7D0057;
+    transition: 0.2s;
+    display: flex;
+
+}
+.wrapper:hover{
+    border:  2px solid #009b00;
+    color: #009b00;
+
+}
+.img{
+    max-width: 30px;
+    display: block;
+}
+.login{
+    padding: 5px;
+    font-weight: 500;
+}

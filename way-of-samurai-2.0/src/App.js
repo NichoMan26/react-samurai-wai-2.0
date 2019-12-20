@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import Nav from './components/Nav/Nav';
 import {Route, BrowserRouter} from 'react-router-dom'
 import DialogsContainer from './components/Dialogs/DialogsContainer';
@@ -11,15 +11,17 @@ const App = (props) => {
   return ( 
     <BrowserRouter>
       <div className = 'wrapper' >
-        <Header / >
+        <HeaderContainer / >
         <Nav / >
         <div className='content'>
           <Route path='/profile/:userId?' 
                   render={() => <ProfileContainer />}/>
           <Route path='/dialogs' 
                   render={() => <DialogsContainer />}/>
-                  <Route path='/users' 
+          <Route path='/users' 
                   render={() => <UsersContainer/>}/>
+          {/* <Route path='/login' 
+                  render={() => <Login/>}/> */}
         </div>
       </div>
     </BrowserRouter>
