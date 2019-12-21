@@ -6,6 +6,13 @@ class Status extends React.Component{
         editMode: false,
         status: this.props.status
     }
+    componentDidUpdate(prevProps,prevState){
+        if(prevProps.status !== this.props.status){
+            this.setState({
+                status:this.props.status
+            })
+        }
+    }
     activateEditMode = () =>{
         this.setState({
             editMode: true
@@ -23,14 +30,24 @@ class Status extends React.Component{
         })
     }
     render(){
-        return(<>
+        return(
+        <div className={cls.wrapper}>
+            <p className={cls.statusGeneral}>Статус: </p>
         {!this.state.editMode
-        ? <p onDoubleClick={this.activateEditMode} className={cls.status}>{`Статус: ws${this.state.status}`}</p>
+        ? <p onDoubleClick={this.activateEditMode} 
+        className={cls.status}>
+            {this.state.status?this.state.status:'-----'}
+            </p>
         :<div>
-            <input onChange={this.onStatusChange} autoFocus={true} onBlur={this.deactivateEditMode} value={this.state.status} type="text"/>
+            <input className={cls.input} 
+                    onChange={this.onStatusChange} 
+                    autoFocus={true} 
+                    onBlur={this.deactivateEditMode} 
+                    value={this.state.status} 
+                    type="text"/>
             {/* <button>Send status</button> */}
         </div>}
-        </>
+        </div>
         )
     }
 }
