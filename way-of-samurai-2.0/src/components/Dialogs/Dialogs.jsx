@@ -24,8 +24,7 @@ const Dialogs = (props) => {
                    {messageList}
                 </ul>
                 <NewMessage  dialogsPage={props.dialogsPage}
-                            onAddMessage={props.onAddMessage}
-                            onMessageChange={props.onMessageChange}/>
+                            onAddMessage={props.onAddMessage}/>
             </div>
         </div>
     )

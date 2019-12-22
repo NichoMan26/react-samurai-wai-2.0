@@ -9,10 +9,7 @@ const MyPosts = (props) => {
     })
     return(
         <div className={cls.wrapper}>
-            <NewPost updateNewPostText={props.updateNewPostText} 
-                    addPost={props.addPost}
-                    newPostText={props.newPostText}
-                    />
+            <NewPost addNewPost={props.addNewPost}/>
             {myPosts}
         </div>
     )

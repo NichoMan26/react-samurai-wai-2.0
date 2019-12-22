@@ -1,7 +1,6 @@
 import {userAPI, profileAPI} from './../api/api'
 
 let ADD_POST = 'ADD-POST';
-let UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 let SET_USER_PROFILE = 'SET_USER_PROFILE';
 // let GET_USER_PROFILE = 'GET_USER_PROFILE';
 let SET_STATUS = 'SET_STATUS';
@@ -22,11 +21,8 @@ const profileReducer = (state = initialState, action) => {
             return{...state,
                 myPosts:[...state.myPosts,
                     {id:state.myPosts.length + 1, 
-                    text:state.newPostText},],
-                    newPostText:'Moi, tannan '  
+                    text:action.newPostBody},], 
                         }
-        case UPDATE_NEW_POST_TEXT:
-            return{...state, newPostText:action.newText}
         case SET_USER_PROFILE:
             return{...state, userProfile:action.userProfile}
         // case GET_USER_PROFILE:
@@ -39,8 +35,7 @@ const profileReducer = (state = initialState, action) => {
 }
 
 //ActionCreator
-export const addPostActionCreator = () => ({type:ADD_POST})
-export const updateNewPostActionCreator = (newText) => ({type:UPDATE_NEW_POST_TEXT, newText:newText})
+export const addPostActionCreator = (newPostBody) => ({type:ADD_POST, newPostBody})
 export const setUserProfile = (userProfile) => ({type:SET_USER_PROFILE, userProfile:userProfile})
 export const setStatus = (status) => ({type:SET_STATUS, status})
 //ThunkCreator
