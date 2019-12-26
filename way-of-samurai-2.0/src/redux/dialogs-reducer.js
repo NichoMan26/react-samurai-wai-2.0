@@ -1,5 +1,6 @@
 let ADD_MESSAGE = 'ADD-MESSAGE';
 
+
 let initialState = {
     posts: [
         { id:1, name:'Andrey' },

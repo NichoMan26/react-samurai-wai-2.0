@@ -9,14 +9,15 @@ const Auth = (props) =>{
             <>
             {props.isAuth
             ? 
-            <NavLink  to={`/profile`}>
-                <div className={cls.wrapper}>
+            <NavLink className={cls.wrapper}  to={`/profile`}>
+                <div className={cls.wrapperUser}>
                     <img className={cls.img} src={userDef} alt=""/>
-                    <p className={cls.login}>{props.login}  </p>  
+                    <p className={cls.login}>{props.login}</p> 
                 </div>
+                <button onClick={props.logout} className={cls.button}>Logout</button> 
             </NavLink>
             :
-            <NavLink className={cls.wrapper} to={'/login/'}>
+            <NavLink className={cls.wrapperUser} to={'/login/'}>
                <p className={cls.login}>Login</p>  
             </NavLink>
             }

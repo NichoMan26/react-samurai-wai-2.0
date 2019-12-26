@@ -1,4 +1,7 @@
 .wrapper{
+    display: flex;
+}
+.wrapperUser{
     border:  2px solid #FFF500;
     color: #FFF500;
     background-color: #7D0057;
@@ -6,7 +9,7 @@
     display: flex;
 
 }
-.wrapper:hover{
+.wrapperUser:hover{
     border:  2px solid #009b00;
     color: #009b00;
 
@@ -18,4 +21,18 @@
 .login{
     padding: 5px;
     font-weight: 500;
+}
+.button{
+    background: none;
+    color: #FFF500;
+    padding: 5px;
+    font-weight: 500;
+    border:  2px solid #FFF500;
+    border-left: none;
+    transition: 0.2s; 
+}
+.button:hover{
+    background: #FFF500;
+    color: #7D0057;
+    cursor: pointer;
 }

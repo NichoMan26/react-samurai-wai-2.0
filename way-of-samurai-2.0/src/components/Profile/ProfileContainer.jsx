@@ -10,7 +10,10 @@ import {withRouter} from 'react-router-dom'
     componentDidMount(){
         let userId = this.props.match.params.userId
         if(!userId){
-            userId = 5242
+            userId = this.props.myUserId
+            if(!userId){
+               this.props.history.push('/login')
+            }
         }
         this.props.getUserProfile(userId)
         this.props.getStatus(userId)
@@ -23,7 +26,9 @@ import {withRouter} from 'react-router-dom'
 const mapStateToProps = (state) => {
    return{
       userProfile:state.profilePage.userProfile,
-      status:state.profilePage.status
+      status:state.profilePage.status,
+      myUserId:state.auth.id,
+      isAuth: state.auth.isAuth
    }
   }
 

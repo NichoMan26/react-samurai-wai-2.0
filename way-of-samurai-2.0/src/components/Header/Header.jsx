@@ -9,7 +9,7 @@ const Header = (props) => {
     return(
         <header className={cls.header}>
             <NavLink to="/profile"><img className={cls.logo} src={logo} alt="logo"/></NavLink>
-            <Auth login={props.login} isAuth={props.isAuth} id={props.id}/>
+            <Auth login={props.login} logout={props.logout} isAuth={props.isAuth} id={props.id}/>
         </header>
     )
 }
