@@ -2,7 +2,7 @@ import {userAPI, profileAPI} from './../api/api'
 
 let ADD_POST = 'ADD-POST';
 let SET_USER_PROFILE = 'SET_USER_PROFILE';
-// let GET_USER_PROFILE = 'GET_USER_PROFILE';
+let DELETE_POST = 'DELETE_POST';
 let SET_STATUS = 'SET_STATUS';
 let initialState = {
     myPosts:[
@@ -23,10 +23,12 @@ const profileReducer = (state = initialState, action) => {
                     {id:state.myPosts.length + 1, 
                     text:action.newPostBody},], 
                         }
+        case DELETE_POST:
+            return{...state,
+                myPosts:state.myPosts.filter(p => p.id != action.postId)
+                        }
         case SET_USER_PROFILE:
             return{...state, userProfile:action.userProfile}
-        // case GET_USER_PROFILE:
-        //     return{...state, userProfile:action.userProfile}
         case SET_STATUS:
             return{...state, status:action.status}
         default: 
@@ -36,7 +38,8 @@ const profileReducer = (state = initialState, action) => {
 
 //ActionCreator
 export const addPostActionCreator = (newPostBody) => ({type:ADD_POST, newPostBody})
-export const setUserProfile = (userProfile) => ({type:SET_USER_PROFILE, userProfile:userProfile})
+export const deletePost = (postId) => ({type:DELETE_POST, postId})
+export const setUserProfile = (userProfile) => ({type:SET_USER_PROFILE, userProfile})
 export const setStatus = (status) => ({type:SET_STATUS, status})
 //ThunkCreator
 export const getUserProfile = (userId) => (dispatch) => {
