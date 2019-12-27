@@ -2,23 +2,16 @@ import React from 'react'
 import cls from './Users.module.css'
 import userDef from './../../assets/img/userDef.png'
 import {NavLink} from 'react-router-dom'
+import Pagination from '../Common/Pagination/Pagination'
 
 const Users = (props) =>{    
-    let countPages = Math.ceil(props.totalUsersCount / props.pageSize);
-    let pages = []
-    for(let i = 1; i <= countPages; i++){
-        pages.push(i)
-    }
     return <div className={cls.wrapper}>
-    <ul className={cls.pagination}>
-    {pages.map((el)=>{
-        return <li onClick={()=>{props.onPageChanged(el)}}
-                    key={el} 
-                    className={el === props.currentPage 
-                        ? `${cls.pagination__item_active} ${cls.pagination__item}` 
-                        : cls.pagination__item}>{el}</li>
-    })}
-    </ul>
+   <Pagination 
+   totalUsersCount={props.totalUsersCount}
+   pageSize={props.pageSize}
+   currentPage={props.currentPage}
+   onPageChanged={props.onPageChanged}
+   />
     <ul>
     {props.users.map((el) => {
     return <li className={cls.user} key={el.id}>
