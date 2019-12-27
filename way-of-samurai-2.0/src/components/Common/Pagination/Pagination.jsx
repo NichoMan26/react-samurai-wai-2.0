@@ -18,7 +18,7 @@ const Pagination = ({totalUsersCount, pageSize, currentPage, onPageChanged, port
     {portionNumber > 1 && 
     <button className={cls.button} onClick={() => { setPortionNumber(portionNumber - 1) }}>PREV</button> }
     <ul className={cls.pagination}>
-    {pages.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
+{pages.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
     .map((el)=>{
         return <li onClick={()=>{onPageChanged(el)}}
                     key={el} 
