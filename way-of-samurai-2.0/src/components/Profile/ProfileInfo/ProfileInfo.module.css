@@ -1,8 +1,49 @@
 .wrapper{
     display: flex;
 }
+.photoWrapper{
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.photoWrapper:hover .buttonChangePhoto{
+    top: 5px;
+}
 .textWrapper{
     padding: 20px;
+}
+.buttonChangePhoto{
+position: absolute;
+width: 30px;
+height: 30px;
+right: 5px;
+top: -30px;
+background-color: #7D0057;
+transition: 0.5s;
+
+}
+.buttonChangePhotoInput{
+    cursor: pointer;
+    border-left: 30px solid #7D0057;
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+.buttonChangePhotoText{
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: #FFF500;
+    font-size: 26px;
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 .name{
     color: #7D0057;

@@ -4,6 +4,7 @@ let ADD_POST = 'ADD-POST';
 let SET_USER_PROFILE = 'SET_USER_PROFILE';
 let DELETE_POST = 'DELETE_POST';
 let SET_STATUS = 'SET_STATUS';
+let SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
 let initialState = {
     myPosts:[
         { id:1, text:"Hi, it's my first post" },
@@ -25,12 +26,14 @@ const profileReducer = (state = initialState, action) => {
                         }
         case DELETE_POST:
             return{...state,
-                myPosts:state.myPosts.filter(p => p.id != action.postId)
+                myPosts:state.myPosts.filter(p => p.id !== action.postId)
                         }
         case SET_USER_PROFILE:
             return{...state, userProfile:action.userProfile}
         case SET_STATUS:
             return{...state, status:action.status}
+        case SAVE_PHOTO_SUCCESS:
+            return{...state, userProfile:{...state.userProfile, photos:action.photos}}
         default: 
             return state;
     }
@@ -41,6 +44,7 @@ export const addPostActionCreator = (newPostBody) => ({type:ADD_POST, newPostBod
 export const deletePost = (postId) => ({type:DELETE_POST, postId})
 export const setUserProfile = (userProfile) => ({type:SET_USER_PROFILE, userProfile})
 export const setStatus = (status) => ({type:SET_STATUS, status})
+export const savePhotoSuccess = (photos) => ({type:SAVE_PHOTO_SUCCESS, photos})
 //ThunkCreator
 export const getUserProfile = (userId) => (dispatch) => {
     userAPI.getProfile(userId)
@@ -59,6 +63,14 @@ export const updateStatus = (status) => (dispatch) => {
         .then(responce=>{
             if(responce.data.resultCode === 0){
                 dispatch(setStatus(status))
+            }
+        })
+}
+export const savePhoto = (file) => (dispatch) => {
+    profileAPI.savePhoto(file)
+        .then(responce=>{
+            if(responce.resultCode === 0){
+                dispatch(savePhotoSuccess(responce.data.photos))
             }
         })
 }
