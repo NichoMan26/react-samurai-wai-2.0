@@ -2,10 +2,10 @@
     border: 2px solid #7D0057;
 }
 .textarea{
-    height: 100%;
-    width: 100%;
+    display: block;
+    width: 300px;
     resize: none;
-    padding: 10px;
+    padding: 5px;
 }
 .errorWrapper{
     color: red;

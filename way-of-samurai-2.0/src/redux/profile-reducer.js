@@ -1,10 +1,12 @@
 import {userAPI, profileAPI} from './../api/api'
+import {stopSubmit} from 'redux-form'
 
 let ADD_POST = 'ADD-POST';
 let SET_USER_PROFILE = 'SET_USER_PROFILE';
 let DELETE_POST = 'DELETE_POST';
 let SET_STATUS = 'SET_STATUS';
 let SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
+
 let initialState = {
     myPosts:[
         { id:1, text:"Hi, it's my first post" },
@@ -73,5 +75,15 @@ export const savePhoto = (file) => (dispatch) => {
                 dispatch(savePhotoSuccess(responce.data.photos))
             }
         })
+}
+export const saveProfile = (dataProfile) =>  async (dispatch, getState) => {
+    let userId = getState().auth.id
+    let response = await profileAPI.saveProfile(dataProfile)
+    if(response.data.resultCode === 0) {
+        dispatch(getUserProfile(userId))
+    } else {
+        dispatch(stopSubmit('login', {_error:response.data.messages[0]}))
+    }
+    
 }
 export default profileReducer;

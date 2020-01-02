@@ -21,7 +21,7 @@ const onStatusChange = (e) =>{
 }
     return (
         <div className={cls.wrapper}>
-            <p className={cls.statusGeneral}>Статус: </p>
+            <p className={cls.statusGeneral}>Status: </p>
             {!editMode
                 ? <p
                     onDoubleClick={activeMode}

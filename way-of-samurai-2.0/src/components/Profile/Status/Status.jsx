@@ -32,7 +32,7 @@ class Status extends React.Component{
     render(){
         return(
         <div className={cls.wrapper}>
-            <p className={cls.statusGeneral}>Статус: </p>
+            <p className={cls.statusGeneral}>Status: </p>
         {!this.state.editMode
         ? <p onDoubleClick={this.activateEditMode} 
         className={cls.status}>

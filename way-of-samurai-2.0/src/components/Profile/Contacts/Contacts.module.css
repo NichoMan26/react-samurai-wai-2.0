@@ -1,0 +1,39 @@
+.wrapper{
+    border: 2px solid #7D0057;
+    margin: 10px 10px 0;
+    padding: 5px;
+}
+.header{
+    color: #7D0057;
+}
+.li{
+    color: #7D0057;
+}
+.nameContact{
+    min-width: 90px;
+    display: inline-block;
+}
+.profileDataWrapper{
+    padding: 0 10px;
+}
+.profileDataString{
+    color: #7D0057;
+}
+.button{
+    width: 40px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    color: #7D0057;
+    transition: 0.2s;
+    margin: 5px 0 0;
+    background-color: rgba(255, 247, 0, 0);
+    border: 1px solid #7D0057;
+    outline: none;
+}
+.button:hover{
+    color: #FFF500;
+    background-color:#7D0057;
+    cursor: pointer;
+}
+
